@@ -3,8 +3,23 @@ import Image from 'next/image'
 import Header from '../components/Header'
 import {MagnifyingGlassIcon, MicrophoneIcon} from '@heroicons/react/20/solid';
 import Footer from '../components/Footer';
+import { useRouter } from 'next/router';
+import { useRef } from 'react';
 
 export default function Home() {
+  const router = useRouter();
+  const searchInputRef = useRef(null);
+  const search = (event) => {
+    // 아무것도 입력되어 있지 않을 때 서치 버튼을 누르면 화면이 refresh 되는데, 그것을 방지한다.
+    event.preventDefault();
+    const term = searchInputRef.current.value;
+    // 함수안의 if에서 그냥 return을 하면 그냥 함수를 종료한다.
+    // trim()은 자바스크립트 함수, 문자 양 끝의 공백을 제거한다.
+    // 아무것도 써져 있지 않을 때, 공백만 썼을 때 서치 버튼을 누르면 그냥 return 되도록 한다.
+    if(!term.trim()) return;
+    // url을 바꾼다.
+    router.push(`/search?term=${term.trim()}`);
+  }
   return (
     <div>
       <Head>
@@ -26,11 +41,11 @@ export default function Home() {
           style="object-cover"/>
         <div className='flex w-full mt-5 mx-auto max-w-[90%] border border-gray-200 hover:shadow-lg focus-within:shadow-lg px-5 py-3 rounded-full items-center sm:max-w-xl lg:max-w-2xl'>
           <MagnifyingGlassIcon className='h-5 text-gray-500 mr-3'/>
-          <input type="text" className='flex-grow focus:outline-none '/>
+          <input ref={searchInputRef} type="text" className='flex-grow focus:outline-none '/>
           <MicrophoneIcon className='h-5'/>
         </div>
         <div className='flex flex-col sm:flex-row w-[50%] space-y-2 mt-8 sm:space-y-0 sm:space-x-4 justify-center'>
-          <button className='btn'>Google Search</button>
+          <button onClick={search} className='btn'>Google Search</button>
           <button className='btn'>I'm Feeling Lucky</button>
         </div>
       </form>
