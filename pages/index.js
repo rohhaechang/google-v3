@@ -18,7 +18,7 @@ export default function Home() {
     // 아무것도 써져 있지 않을 때, 공백만 썼을 때 서치 버튼을 누르면 그냥 return 되도록 한다.
     if(!term.trim()) return;
     // url을 바꾼다.
-    router.push(`/search?term=${term.trim()}`);
+    router.push(`/search?term=${term.trim()}&searchType=`);
   }
   return (
     <div>
