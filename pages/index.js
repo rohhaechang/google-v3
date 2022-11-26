@@ -38,7 +38,8 @@ export default function Home() {
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/640px-Google_2015_logo.svg.png"
           width="300"
           height="100"
-          style="object-cover"/>
+          style="object-cover"
+          alt="google Image"/>
         <div className='flex w-full mt-5 mx-auto max-w-[90%] border border-gray-200 hover:shadow-lg focus-within:shadow-lg px-5 py-3 rounded-full items-center sm:max-w-xl lg:max-w-2xl'>
           <MagnifyingGlassIcon className='h-5 text-gray-500 mr-3'/>
           <input ref={searchInputRef} type="text" className='flex-grow focus:outline-none '/>

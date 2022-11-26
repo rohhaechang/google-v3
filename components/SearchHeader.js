@@ -22,7 +22,8 @@ export default function SearchHeader() {
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/640px-Google_2015_logo.svg.png"
           width="120"
           height="40"
-          className="object-contain cursor-pointer "/>
+          className="object-contain cursor-pointer "
+          alt="google Image"/>
           <form className="flex border border-gray-200 rounded-full shadow-lg px-6 py-3 ml-10 mr-5 flex-grow max-w-3xl items-center ">
             <input type="text" 
               defaultValue={router.query.term} 
