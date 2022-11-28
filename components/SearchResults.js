@@ -1,5 +1,6 @@
-import React from 'react';
 import HTMLReactParser from 'html-react-parser';
+import React from 'react';
+import PaginationButtons from './PaginationButtons';
 
 function SearchResults({results}) {
   return (
@@ -16,6 +17,7 @@ function SearchResults({results}) {
         <p className='text-gray-600 '>{HTMLReactParser(result.htmlSnippet)}</p>
       </div>
       ))}
+      <PaginationButtons />
     </div>
   );
 }
